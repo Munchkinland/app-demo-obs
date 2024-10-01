@@ -1,17 +1,18 @@
-# Imagen base de Python
+# Usar una imagen base de Python
 FROM python:3.9-slim
 
-# Establecer directorio de trabajo
+# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copiar los archivos del proyecto
-COPY . .
-
-# Instalar dependencias
+# Copiar los requisitos y el código de la aplicación al contenedor
+COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Exponer el puerto de Flask
-EXPOSE 8080
+COPY . .
 
-# Ejecutar la aplicación
+# Exponer los puertos que usará la aplicación
+EXPOSE 5000
+EXPOSE 8000
+
+# Comando para ejecutar la aplicación
 CMD ["python", "app.py"]

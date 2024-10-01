@@ -1,2 +1,4 @@
-Flask==2.0.2
-sqlite3
+Flask
+prometheus_client
+requests
+
